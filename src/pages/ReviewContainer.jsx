@@ -7,14 +7,13 @@ const allReviews = reviews.map((review) => {
     return(
         <ReviewItem
         key={review.id}
-        review={review} />
+        review={review}/>
     )
 } )
 
     return(
         <div>
-            <h1>ReviewContainer {allReviews} </h1>
-
+            <h1>Reviews {allReviews} </h1>
         </div>
     )
 }

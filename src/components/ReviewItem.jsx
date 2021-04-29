@@ -1,27 +1,31 @@
 import React from 'react'
+import "./ReviewItem.css"
 
 function ReviewItem({review} ){
-    console.log(review)
-
-
+  
     return(
-        <div> 
-            <img src={review.game.image}/>
-            <p>Game:{review.game.name}</p>
-            <p>Rating:{review.rating}</p>
-            <p>Comment:{review.comments}</p>
-            <br></br>
-            <br></br>
-            <br></br>
-           
-           
 
-        </div>
+
+
+
+<main className="grid">
+  <article>
+    <img src={review.game.image} alt={review.game.name} />
+    <div className="text">
+      <h1>{review.game.name}</h1>
+      <h2>Rating:{review.rating}</h2>
+      <h3>{review.comments}</h3>
+      <button>Delete Review </button>
+    </div>
+  </article>
+</main>
+
+
+           
+    
     )
 
 }
-
-
 
 
 
