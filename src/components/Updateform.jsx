@@ -42,6 +42,7 @@ const [editComment, setEditComment] = useState("")
     return (
 
             <div>
+                <button>Edit Review</button>
             <form onSubmit={handleSubmit}> 
             <input placeholder="Change Rating" onChange={handleRatingChange} value={editRating} />
             <input placeholder="Change Comment" onChange={handleCommentChange} value={editComment}/>

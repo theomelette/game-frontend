@@ -5,6 +5,7 @@ import ReviewContainer from "./pages/ReviewContainer";
 import AddForm from "./pages/AddForm";
 import Updateform from "./components/Updateform";
 import Homepage from "./pages/Homepage";
+import NavBar from './components/NavBar'
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -17,7 +18,7 @@ function App() {
   }, []);
 
   function handleAddReview(newReview) {
-    const updatedReviewsArray = [newReview, ...reviews];
+    const updatedReviewsArray = [...reviews, newReview ];
     setReviews(updatedReviewsArray);
   }
 
@@ -41,7 +42,7 @@ function App() {
   return (
     <div className="App">
       {/* <AddForm onAddReview={handleAddReview} /> */}
-
+    <NavBar />
       <Switch>
 
         <Route exact path="/home">

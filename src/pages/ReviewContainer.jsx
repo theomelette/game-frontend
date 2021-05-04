@@ -18,7 +18,7 @@ const allReviews = reviews.map((review) => {
 
     return(
         <div>
-            <div>{allReviews} </div>
+            <div className="grid-container">{allReviews} </div>
         </div>
     )
 }

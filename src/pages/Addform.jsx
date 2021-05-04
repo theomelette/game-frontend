@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function AddForm({ onAddReview }) {
+  const history = useHistory()
   const [rating, setRating] = useState("")
   const [comments, setComments] = useState("")
   const [name, setName] = useState("")
@@ -28,7 +29,7 @@ function handleSubmit(event)  {
       }),
     })
       .then((response) => response.json())
-      .then((newReview) => onAddReview(newReview))
+      .then((newReview) => {onAddReview(newReview); history.push("/show")}) 
     //   history.push("/show")
 
     setRating("");
@@ -38,17 +39,15 @@ function handleSubmit(event)  {
   }
 
   return (
-      <div >
+      <div className="new-form">
         <h2>Add a New Review</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="review-form">
           <input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
           <input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
           <input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
           <input placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
-         {/* <button type="submit" onClick={() => history.push('/show')}>New Review</button>  */}
-           <Link to="/show">
-         <button type="form-submit">New Review</button>
-          </Link>
+         <button type="submit">New Review</button>
+    
         </form>
       </div>
 
@@ -70,21 +69,6 @@ function handleSubmit(event)  {
 
   // )
 
-//   return (
-//     <>
-//         <form onSubmit={handleSubmit} className="new-review-form">
-//         <input placeholder="Game" value={name} onChange={(event) => setName(event.target.value)} />
-//             <input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
-//             <input placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
-//             <input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
-//            
-//             <input className="form-submit" type="submit" value="New Review" />
-// 
-//         </form>
-
-        
-//     </>
-// )
 }
 
 export default AddForm;
