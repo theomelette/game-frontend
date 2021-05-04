@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Input, Stack, Button, Flex } from "@chakra-ui/react"
 import { useHistory } from "react-router-dom";
 
 function AddForm({ onAddReview }) {
@@ -39,15 +39,20 @@ function handleSubmit(event)  {
   }
 
   return (
-      <div className="new-form">
-        <h2>Add a New Review</h2>
-        <form onSubmit={handleSubmit} className="review-form">
-          <input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
-          <input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
-          <input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
-          <input placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
-         <button type="submit">New Review</button>
-    
+      <div>
+  
+        <form onSubmit={handleSubmit} >
+        <Flex align="center" justify="center">
+            <Stack c >
+          <Input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
+          <Input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
+          <Input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
+          <Input  placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
+          </Stack>
+          </Flex>
+        <Flex align="center" justify="center">
+         <Button colorScheme="blue" type="submit">Submit Review</Button>
+         </Flex>
         </form>
       </div>
 

@@ -1,4 +1,4 @@
-import "./App.css";
+
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import ReviewContainer from "./pages/ReviewContainer";
@@ -6,6 +6,7 @@ import AddForm from "./pages/AddForm";
 import Updateform from "./components/Updateform";
 import Homepage from "./pages/Homepage";
 import NavBar from './components/NavBar'
+import { ChakraProvider } from "@chakra-ui/react"
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -40,6 +41,7 @@ function App() {
   };
 
   return (
+    <ChakraProvider>
     <div className="App">
       {/* <AddForm onAddReview={handleAddReview} /> */}
     <NavBar />
@@ -68,6 +70,7 @@ function App() {
 
       </Switch>
     </div>
+    </ChakraProvider>
   );
 }
 

@@ -1,6 +1,9 @@
 import React from 'react'
-import "./ReviewItem.css"
+import { Image, Stack } from "@chakra-ui/react"
 import Updateform from './Updateform'
+import { Button } from "@chakra-ui/react"
+import { Wrap, WrapItem, Center } from "@chakra-ui/react"
+
 
 function ReviewItem({review, onUpdatedReview, onDeleteReview} ){
   
@@ -16,18 +19,37 @@ function ReviewItem({review, onUpdatedReview, onDeleteReview} ){
 
 
 
-<main className="card">
-  <div>
-    <img className='bg-img' src={review.game.image} alt={review.game.name} />
-    <div className="content">
-      <h1>{review.game.name}</h1>
-      <h2>Rating:{review.rating}/10</h2>
-      <h3>{review.comments}</h3>
+
+      <div>
+  
+       
+
+       
+ 
+ 
+    <Image boxSize="300px" src={review.game.image} alt={review.game.name} />
+ 
+       
+
+
+    <Stack spacing={8}>
+ 
+      <p>{review.game.name}</p>
+      <p>Rating:{review.rating}/10</p>
+      <p>{review.comments}</p>
+      </Stack>
+    
+
+
       <Updateform review={review} onUpdatedReview={onUpdatedReview}/>
-      <button onClick={handleDelete}className='button2'>X</button>
+      <Button colorScheme="red" onClick={handleDelete}>X</Button>
+     
+     
     </div>
-  </div>
-</main>
+    
+  
+  
+
 
 
            
