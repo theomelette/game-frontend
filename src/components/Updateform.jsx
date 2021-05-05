@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Stack } from "@chakra-ui/react"
+import { Button, Stack, Box } from "@chakra-ui/react"
 import { Input } from "@chakra-ui/react"
 
 
@@ -43,17 +43,17 @@ const [editComment, setEditComment] = useState("")
 
     return (
 
-            <div>
+        <Box w="300px">
                 {/* <Button colorScheme="blue">Edit Review</Button> */}
             <form onSubmit={handleSubmit}> 
             <Stack spacing={4} width="300px" variant="outline">
-            <Input variant="outline" placeholder="Change Rating" onChange={handleRatingChange} value={editRating} />
+            <Input variant="outline" placeholder={review.rating} onChange={handleRatingChange} value={editRating} />
             <Input variant="outline" placeholder="Change Comment" onChange={handleCommentChange} value={editComment}/>
             </Stack>
             <Button colorScheme="blue" type="submit">Save Changes</Button>
             </form>
      
-        </div>
+        </Box>
        
     )
 }

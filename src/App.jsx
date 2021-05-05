@@ -7,6 +7,7 @@ import Updateform from "./components/Updateform";
 import Homepage from "./pages/Homepage";
 import NavBar from './components/NavBar'
 import { ChakraProvider } from "@chakra-ui/react"
+import './App.css'
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -41,9 +42,9 @@ function App() {
   };
 
   return (
+    <div className="body">
     <ChakraProvider>
-    <div className="App">
-      {/* <AddForm onAddReview={handleAddReview} /> */}
+    
     <NavBar />
       <Switch>
 
@@ -69,8 +70,9 @@ function App() {
         </Route>
 
       </Switch>
-    </div>
+  
     </ChakraProvider>
+    </div>
   );
 }
 

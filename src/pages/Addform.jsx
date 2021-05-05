@@ -39,11 +39,11 @@ function handleSubmit(event)  {
   }
 
   return (
-      <div>
+      <div className="body">
   
         <form onSubmit={handleSubmit} >
         <Flex align="center" justify="center">
-            <Stack c >
+            <Stack spacing={8} width="300px" >
           <Input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
           <Input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
           <Input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />

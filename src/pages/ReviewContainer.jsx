@@ -1,6 +1,8 @@
 import React from 'react'
 import ReviewItem from '../components/ReviewItem'
-import { Grid } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
+import './ReviewContainer.css'
+
 
 
 
@@ -19,8 +21,9 @@ const allReviews = reviews.map((review) => {
 } )
 
     return(
-        
-            <div>{allReviews} </div>
+        <div className="body">
+            <Box className="card" w="300px" >{allReviews} </Box>
+            </div>
     )
 }
 
