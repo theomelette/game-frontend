@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import NavBar from './components/NavBar'
 import { ChakraProvider } from "@chakra-ui/react"
 import './App.css'
+import {ThemeProvider, theme, ColorModeProvider} from "@chakra-ui/react";
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -42,6 +43,10 @@ function App() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+      <ColorModeProvider options={{
+        useSystsemColorMode: true
+      }}>
     <div className="body">
     <ChakraProvider>
     
@@ -73,6 +78,8 @@ function App() {
   
     </ChakraProvider>
     </div>
+    </ColorModeProvider>
+    </ThemeProvider>
   );
 }
 

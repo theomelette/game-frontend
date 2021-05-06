@@ -1,17 +1,17 @@
 import React from 'react'
 import {Link } from 'react-router-dom'
-import { Box } from "@chakra-ui/react"
+import { Box, Button } from "@chakra-ui/react"
 
 
 
 function NavBar() {
 return ( 
   <div className="body">
-  <Box w="300px" color="white">
+  <Box>
             <ul>
 
-          <li><Link to="/show"> All Reviews</Link></li>
-          <li><Link to="/new"> Add New Review</Link></li>
+          <Button size="md" ><Link to="/show"> All Reviews</Link></Button>
+          <Button size="md" ><Link to="/new"> Add New Review</Link></Button>
           </ul>
        </Box>
        </div>

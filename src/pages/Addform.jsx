@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Input, Stack, Button, Flex } from "@chakra-ui/react"
+import { Input, Stack, Button, Flex, toast, useToast } from "@chakra-ui/react"
 import { useHistory } from "react-router-dom";
 
 function AddForm({ onAddReview }) {
@@ -8,11 +8,10 @@ function AddForm({ onAddReview }) {
   const [comments, setComments] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState("")
-//   let history = useHistory(); 
+  const toast = useToast();
 
 function handleSubmit(event)  {
     event.preventDefault();
-    alert("New Review Submitted!")
     fetch("http://localhost:3001/reviews", {
       method: "POST",
       headers: {
@@ -51,7 +50,15 @@ function handleSubmit(event)  {
           </Stack>
           </Flex>
         <Flex align="center" justify="center">
-         <Button colorScheme="blue" type="submit">Submit Review</Button>
+         <Button colorScheme="blue" type="submit" onClick={() =>
+            toast({
+              isClosable: false,
+              title: "Review Added!",
+              duration: 5000,
+              position: "top",
+              status: "info",
+            })
+          }>Submit Review</Button>
          </Flex>
         </form>
       </div>
