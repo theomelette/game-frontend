@@ -8,7 +8,8 @@ import Homepage from "./pages/Homepage";
 import NavBar from './components/NavBar'
 import { ChakraProvider } from "@chakra-ui/react"
 import './App.css'
-import {ThemeProvider, theme, ColorModeProvider} from "@chakra-ui/react";
+import {ThemeProvider, theme, ColorModeProvider, Flex} from "@chakra-ui/react";
+
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -49,8 +50,11 @@ function App() {
       }}>
     <div className="body">
     <ChakraProvider>
-    
+  
+    <Flex align="center" justify="center">
     <NavBar />
+    </Flex>
+  
       <Switch>
 
         <Route exact path="/home">
@@ -61,7 +65,7 @@ function App() {
             <AddForm onAddReview={handleAddReview} />
         </Route>
 
-        <Route exact path="/show">
+        <Route exact path="/">
           <ReviewContainer
             reviews={reviews}
             onUpdatedReview={handleUpdatedReview}

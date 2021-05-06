@@ -1,16 +1,18 @@
-import React, { useState } from "react"
-import { Input, Stack, Button, Flex, toast, useToast } from "@chakra-ui/react"
+import React, { useState } from "react";
+import { Input, Stack, Button, Flex, useToast, useColorMode  } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 
-function AddForm({ onAddReview }) {
-  const history = useHistory()
-  const [rating, setRating] = useState("")
-  const [comments, setComments] = useState("")
-  const [name, setName] = useState("")
-  const [image, setImage] = useState("")
-  const toast = useToast();
 
-function handleSubmit(event)  {
+function AddForm({ onAddReview }) {
+  const history = useHistory();
+  const [rating, setRating] = useState("");
+  const [comments, setComments] = useState("");
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const toast = useToast();
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  function handleSubmit(event) {
     event.preventDefault();
     fetch("http://localhost:3001/reviews", {
       method: "POST",
@@ -28,8 +30,11 @@ function handleSubmit(event)  {
       }),
     })
       .then((response) => response.json())
-      .then((newReview) => {onAddReview(newReview); history.push("/show")}) 
-    //   history.push("/show")
+      .then((newReview) => {
+        onAddReview(newReview);
+        history.push("/");
+      });
+
 
     setRating("");
     setComments("");
@@ -38,48 +43,57 @@ function handleSubmit(event)  {
   }
 
   return (
-      <div className="body">
-  
-        <form onSubmit={handleSubmit} >
+    <div className="body">
+       <Flex align="center" justify="center" height="5vh">
+              <Button size="md" onClick={() => toggleColorMode(colorMode)}>
+          Theme
+        </Button>
+        </Flex>
+      <form onSubmit={handleSubmit}>
         <Flex align="center" justify="center">
-            <Stack spacing={8} width="300px" >
-          <Input placeholder="Name" value={name} onChange={(event) => setName(event.target.value)} />
-          <Input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
-          <Input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
-          <Input  placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
+          <Stack spacing={8} width="300px">
+            <Input
+              placeholder="Name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+            <Input
+              placeholder="Image"
+              value={image}
+              onChange={(event) => setImage(event.target.value)}
+            />
+            <Input
+              placeholder="Comments"
+              value={comments}
+              onChange={(event) => setComments(event.target.value)}
+            />
+            <Input
+              placeholder="Rating"
+              value={rating}
+              onChange={(event) => setRating(event.target.value)}
+            />
           </Stack>
-          </Flex>
+        </Flex>
         <Flex align="center" justify="center">
-         <Button colorScheme="blue" type="submit" onClick={() =>
-            toast({
-              isClosable: false,
-              title: "Review Added!",
-              duration: 5000,
-              position: "top",
-              status: "info",
-            })
-          }>Submit Review</Button>
-         </Flex>
-        </form>
-      </div>
-
-    );
-
-  // return (
-
-  //         <form onSubmit={handleSubmit}>
-
-  //             <input placeholder="Game" value={name} onChange={(event) => setName(event.target.value)} />
-  //             <input placeholder="Image" value={image} onChange={(event) => setImage(event.target.value)} />
-  //             <input placeholder="Rating" value={rating} onChange={(event) => setRating(event.target.value)} />
-  //             <input placeholder="Comments" value={comments} onChange={(event) => setComments(event.target.value)} />
-  //             <Link to="/show">
-  //             <input type="form-submit" type="submit" value="New Review">
-  //             </input>
-  //             </Link>
-  //         </form>
-
-  // )
+          <Button
+            colorScheme="blue"
+            type="submit"
+            onClick={() =>
+              toast({
+                isClosable: false,
+                title: "Review Added!",
+                duration: 5000,
+                position: "top",
+                status: "info",
+              })
+            }
+          >
+            Submit Review
+          </Button>
+        </Flex>
+      </form>
+    </div>
+  );
 
 }
 
