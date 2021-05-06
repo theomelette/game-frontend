@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import { ChakraProvider } from "@chakra-ui/react"
 import './App.css'
 import {ThemeProvider, theme, ColorModeProvider, Flex} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react"
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
   };
 
   return (
+  
     <ThemeProvider theme={theme}>
       <ColorModeProvider options={{
         useSystsemColorMode: true
@@ -84,6 +86,8 @@ function App() {
     </div>
     </ColorModeProvider>
     </ThemeProvider>
+   
+  
   );
 }
 
