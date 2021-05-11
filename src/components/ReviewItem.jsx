@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Image, Button, Box, Text, useToast } from "@chakra-ui/react";
 import Updateform from "./Updateform";
 
-
 function ReviewItem({ review, onUpdatedReview, onDeleteReview }) {
   const [show, setShow] = useState(false);
   const [likes, setLikes] = useState(review.likes);
@@ -16,7 +15,7 @@ function ReviewItem({ review, onUpdatedReview, onDeleteReview }) {
   };
 
   function handleLikes() {
-    setLikes(likes + 1)
+    setLikes(likes + 1);
     fetch(`http://localhost:3001/reviews/${review.id}`, {
       method: "PATCH",
       headers: {
@@ -24,13 +23,9 @@ function ReviewItem({ review, onUpdatedReview, onDeleteReview }) {
       },
       body: JSON.stringify({
         likes: likes + 1,
-        user_id: 1
+        user_id: 1,
       }),
-    })
-      .then((r) => r.json())
-  
-
- 
+    }).then((r) => r.json());
   }
 
   return (
@@ -42,7 +37,7 @@ function ReviewItem({ review, onUpdatedReview, onDeleteReview }) {
           toast({
             isClosable: false,
             title: "Review Removed",
-            duration: 5000,
+            duration: 2000,
             position: "top",
             status: "error",
           });

@@ -8,7 +8,7 @@ function NavBar() {
       <Box>
         <ul>
           <Button size="md">
-            <Link to="/"> All Reviews</Link>
+            <Link to="/"> Main</Link>
           </Button>
           <Button size="md">
             <Link to="/new"> Add New Review</Link>

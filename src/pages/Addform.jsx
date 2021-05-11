@@ -82,7 +82,7 @@ function AddForm({ onAddReview }) {
               toast({
                 isClosable: false,
                 title: "Review Added!",
-                duration: 5000,
+                duration: 2000,
                 position: "top",
                 status: "info",
               })

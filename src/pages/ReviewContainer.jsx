@@ -27,6 +27,7 @@ function ReviewContainer({ reviews, onUpdatedReview, onDeleteReview }) {
       <Box className="card" w="300px">
         {allReviews}{" "}
       </Box>
+  
     </div>
    
   );
