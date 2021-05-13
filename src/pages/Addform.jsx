@@ -32,7 +32,7 @@ function AddForm({ onAddReview }) {
       .then((response) => response.json())
       .then((newReview) => {
         onAddReview(newReview);
-        history.push("/");
+        history.push("/show");
       });
 
 
@@ -82,7 +82,7 @@ function AddForm({ onAddReview }) {
               toast({
                 isClosable: false,
                 title: "Review Added!",
-                duration: 2000,
+                duration: 5000,
                 position: "top",
                 status: "info",
               })

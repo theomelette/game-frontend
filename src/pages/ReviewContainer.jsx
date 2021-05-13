@@ -24,9 +24,11 @@ function ReviewContainer({ reviews, onUpdatedReview, onDeleteReview }) {
           Theme
         </Button>
       </Flex>
-      <Box className="card" w="300px">
+     
+      <Box  className="card" w="300px">
         {allReviews}{" "}
       </Box>
+     
   
     </div>
    
